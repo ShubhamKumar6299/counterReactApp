@@ -49,7 +49,8 @@ function App(){
     setCounter(counter+1);
   };
   const deleteValue = ()=>{
-    setCounter(counter -1)
+    // setCounter(counter -1)
+    setCounter((prevCounter)=>Math.max(prevCounter-1, 0))
   };
 
   return (
@@ -61,6 +62,7 @@ function App(){
     <button onClick={addValue}>addValue</button>
 
     <button onClick={deleteValue}>deleteValue</button>
+    {counter < 0 && <h3>counter can not be less than zero!</h3>}
     </>
   )
 };
